@@ -3,9 +3,10 @@ require('dotenv').config();
 
 log4js.configure({
   appenders: {
-    file: {
-      type: 'file',
+    dateFile: {
+      type: 'dateFile',
       filename: 'logs/app.log',
+      pattern: 'yyyy-MM-dd-hh',
       maxLogSize: 10 * 1024 * 1024, // = 10Mb
       backups: 5, // keep five backup files
       compress: true, // compress the backups
@@ -18,7 +19,7 @@ log4js.configure({
     },
   },
   categories: {
-    default: { appenders: ['file', 'out'], level: 'info' },
+    default: { appenders: ['dateFile', 'out'], level: 'info' },
   },
 });
 

@@ -10,7 +10,7 @@ class BaseController {
      * @param {*} success_message 
      * @param {*} data 
      */
-    send_success (res,success_message, data=[]) {
+    send_success (res,success_message, data={}) {
         return res.send({message:success_message,data:data});
     }
     

@@ -17,7 +17,7 @@ const schema = new EntitySchema({
   properties: {
     full_name: { type: "string" },
     user_id: { type: "string" },
-    password: { type: "string" },
+    password: { type: "string" }
   },
 });
 module.exports = {
