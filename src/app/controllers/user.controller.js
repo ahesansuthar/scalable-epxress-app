@@ -30,7 +30,7 @@ class UserController extends BaseController {
   }
 
   /**
-   * create new user action
+   * create new user action updated action
    */
   async create(req, res, next) {
     logger.info("Creating new user");
