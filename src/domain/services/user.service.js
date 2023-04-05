@@ -6,7 +6,7 @@ class UserService {
     try {
       return await DI.userRepository.find({});
     } catch (e) {
-        throw error;
+      throw error;
     }
   }
 
@@ -22,9 +22,8 @@ class UserService {
 
   async update_user(id, full_name, user_id) {
     try {
-      
-        const update_user_by_id = await DI.userRepository.findOne({ id });
-        
+      const update_user_by_id = await DI.userRepository.findOne({ id });
+
       if (update_user_by_id.id !== id) throw new Error("User not found");
 
       let updated_user_values = wrap(update_user_by_id).assign({
@@ -36,7 +35,6 @@ class UserService {
       await DI.userRepository.persistAndFlush(updated_user_values);
 
       return true;
-
     } catch (error) {
       throw error;
     }

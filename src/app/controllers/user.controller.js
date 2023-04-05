@@ -20,13 +20,16 @@ class UserController extends BaseController {
     const { full_name, user_id, password } = req.body;
 
     try {
-      const users = await UserService.get_all_users(full_name, user_id, password);
-      this.send_success(res, "User List.", {"users":users});
+      const users = await UserService.get_all_users(
+        full_name,
+        user_id,
+        password
+      );
+      this.send_success(res, "User List.", { users: users });
     } catch (e) {
-     logger.error("Error occurs while creating new user. Reason:"+e.message);
+      logger.error("Error occurs while creating new user. Reason:" + e.message);
       return this.send_error(res, 400, e.message);
     }
-
   }
 
   /**
@@ -42,10 +45,9 @@ class UserController extends BaseController {
         { user: full_name, id: user_id },
       ]);
     } catch (e) {
-     logger.error("Error occurs while creating new user. Reason:"+e.message);
+      logger.error("Error occurs while creating new user. Reason:" + e.message);
       return this.send_error(res, 400, e.message);
     }
-
   }
 
   /**
@@ -54,24 +56,22 @@ class UserController extends BaseController {
   async update(req, res, next) {
     logger.info("Updating existing user");
     const { id, full_name, user_id } = req.body;
-    console.log("user_id",id);
+    console.log("user_id", id);
     try {
       await UserService.update_user(id, full_name, user_id);
       this.send_success(res, "User updated successfully.", [
         { user: full_name, id: user_id },
       ]);
     } catch (e) {
-      logger.error("Error occurs while updating user. Reason:"+e.message);
+      logger.error("Error occurs while updating user. Reason:" + e.message);
       return this.send_error(res, 400, e.message);
     }
-
   }
 
   /**
    * error_response action
    */
   async error_response(req, res, next) {
-    
     this.send_error(res, 500, "Server error occur");
   }
 }
