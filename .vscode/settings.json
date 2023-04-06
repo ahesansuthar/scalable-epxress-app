@@ -1,15 +1,8 @@
 {
-    "eslint.enable": false,
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[javascript][javascriptreact][typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[json][jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[css][scss][less]": {
-        "editor.defaultFormatter": "vscode.css-language-features"
+    "eslint.enable": true,
+    "editor.fontSize": 15,
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     }
 }
