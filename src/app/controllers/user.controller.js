@@ -4,7 +4,7 @@ const UserService = require("../../domain/services/user.service");
 
 class UserController extends BaseController {
     /**
-   * Index action
+   * Index action updated for git commit
    */
     async index (req, res) {
         this.send_success(res, "respond with a resource from controller", [
